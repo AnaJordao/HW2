@@ -2,15 +2,38 @@
 class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
-    @filtering = params[:ratings]
+    sort_by = params[:sort_by] || session[:sort_by]
+    @filtering = params[:ratings] || session[:ratings] || {}
 
-    if params[:sort_by] == "title"
+    if !params.has_key?(:ratings) && !session.has_key?(:ratings)
+      @filtering = @all_ratings    
+    end
+
+    if params[:sort_by] != session[:sort_by]
+      session[:sort_by] = params[:sort_by]
+      flash.keep
+      redirect_to :sort_by => params[:sort_by], :ratings => @filtering and return
+    end
+
+    if params[:ratings] != session[:ratings]
+      session[:ratings] = params[:ratings]
+      flash.keep
+      redirect_to :sort_by => params[:sort_by], :ratings => @filtering and return
+    end
+
+
+    if sort_by == "title"
       @title_header = "hilite"
     else
       @release_date_header = "hilite"
     end
 
-    @movies = Movie.where(rating: @filtering.keys).order(params[:sort_by])
+    if @filtering != @all_ratings
+      @movies = Movie.where(rating: @filtering.keys).order(sort_by)
+    else
+      @movies = Movie.where(rating: @filtering).order(sort_by)
+    end
+    
   end
 
   def show

@@ -39,6 +39,7 @@ font-style: italic;
 display: block;
 width: 100%;
 border-bottom: 1px solid DarkSlateGrey;
+margin-left: 20px;
 }
 h1.title {
 margin: 0 0 1em;
@@ -54,6 +55,7 @@ margin: 10px;
 border-collapse: collapse;
 width: 100%;
 border-bottom: 2px solid black;
+
 }
 table#movies th {
 border: 2px solid white;
@@ -77,4 +79,46 @@ color: maroon;
 }
 table#movies th.hilite{
  background-color: lightsalmon;
+ 
+}
+
+/* ADDITIONS */
+
+form, h2, h3, p, ul, #btn_add_new_movie, #back_link, #edit_link {
+    margin-left: 20px;
+}
+
+.margin-left {
+    margin-left: 50px;
+}
+
+#ratings_submit {
+    background-color: lightsalmon;
+    color: white;
+    border: none;
+    height: 30px;
+    border-radius: 15%;
+}
+
+#ratings_submit:hover {
+    background-color: salmon;
+    cursor: pointer;
+}
+
+#btn_delete{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(219, 33, 12);
+    color: white;
+    border: none;
+    border-radius: 15%;
+    padding: 5px;
+}
+
+#btn_save {
+    background-color: rgb(218, 107, 17);
+    border: none;
+    border-radius: 10%;
+    padding: 5px;
+    color: white;
 }
