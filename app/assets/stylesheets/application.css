@@ -112,6 +112,7 @@ form, h2, h3, p, ul, #btn_add_new_movie, #back_link, #edit_link {
     color: white;
     border: none;
     border-radius: 15%;
+    cursor: pointer;
     padding: 5px;
 }
 
@@ -120,5 +121,6 @@ form, h2, h3, p, ul, #btn_add_new_movie, #back_link, #edit_link {
     border: none;
     border-radius: 10%;
     padding: 5px;
+    cursor: pointer;
     color: white;
 }
